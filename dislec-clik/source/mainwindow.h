@@ -1,15 +1,22 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 
-#include <QtGui/QMainWindow>
+#include <QApplication>
+#include <QWidget>
+#include <QPushButton>
+#include <QColor>
 
-class MainWindow : public QMainWindow
+class MainWindow : public QWidget
 {
     Q_OBJECT
     
 public:
-    MainWindow(QWidget *parent = 0);
+    MainWindow();
     ~MainWindow();
+
+private:
+    QPushButton *mw_quitter;
+
 };
 
 #endif // MAINWINDOW_H
