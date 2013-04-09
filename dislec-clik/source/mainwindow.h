@@ -2,9 +2,14 @@
 #define MAINWINDOW_H
 
 #include <QApplication>
-#include <QWidget>
-#include <QPushButton>
-#include <QColor>
+#include <QMessageBox>
+#include "view.h"
+#include "model.h"
+#include "viewconnection.h"
+
+#include <iostream>
+
+using namespace std;
 
 class MainWindow : public QWidget
 {
@@ -15,7 +20,14 @@ public:
     ~MainWindow();
 
 private:
-    QPushButton *mw_quitter;
+    View * _v;
+    Model * _m;
+
+    void removeView();
+    void removeModel();
+
+private slots:
+    void quit();
 
 };
 

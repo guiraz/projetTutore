@@ -1,25 +1,30 @@
 #include "mainwindow.h"
 
-MainWindow::MainWindow():QWidget()
+MainWindow::MainWindow() : QWidget()
 {
-    /*Definition de la fenetre */
-
-    //setStyleSheet("background-color:cyan;"); -> tout pourris
-    //setFixedSize(800,600);
-
-
-    /*Definition des bouton */
-
-    mw_quitter = new QPushButton(this);
-    mw_quitter->setGeometry(1500,10,100,50);
-    mw_quitter->setText("QUITTER");
-
-    /*SLOTS*/
-
-    QObject::connect(mw_quitter,SIGNAL(clicked()),qApp,SLOT(quit()));
-
+    this->setPalette(QPalette(QColor(192,192,255)));
+    _v = new ViewConnection(this);
+    _v->setView();
 }
 
 MainWindow::~MainWindow()
 {
+    removeView();
+    removeModel();
+}
+
+void MainWindow::removeView()
+{
+    delete _v;
+}
+
+void MainWindow::removeModel()
+{
+    //delete _m;
+}
+
+void MainWindow::quit()
+{
+    if(QMessageBox::warning(NULL, "Fermeture du programme", "Etes vous sure de vouloir arrêter le programme?", QMessageBox::Ok, QMessageBox::Abort) == QMessageBox::Ok)
+        this->close();
 }
