@@ -1,6 +1,7 @@
 #ifndef DB_H
 #define DB_H
 
+#include <iostream>
 #include <QSqlDatabase>
 #include <QFile>
 

@@ -1,24 +1,27 @@
 #ifndef VIEWCONNECTION_H
 #define VIEWCONNECTION_H
-#include "view.h"
-#include <QApplication>
-#include <QDesktopWidget>
 #include <QPushButton>
 #include <QObject>
 #include <QLabel>
 #include <QComboBox>
+#include <QPixmap>
+#include "view.h"
+
+class Controller;
 
 class ViewConnection : public View
 {
 public:
-    ViewConnection(QWidget * parent);
+    ViewConnection(Controller * parent);
     ~ViewConnection();
     void setView();
+    void setComboBoxUser(QString & user);
 
 private:
-    QPushButton _buttonQuit;
-    QLabel _label;
+    QPushButton _buttonQuit, _buttonNew, _buttonConnect;
+    QLabel _label, _labelIcon;
     QComboBox _comboBox;
+    Controller * _parent;
 };
 
 #endif // VIEWCONNECTION_H

@@ -6,7 +6,9 @@ Db::Db()
     {
         _db.addDatabase("QSQLITE", "db.db"); //launch it
     }
-    else //if not, create it
+    else
     {
+        std::cerr<<"Could not open database."<<std::endl;
+        exit(-1);
     }
 }

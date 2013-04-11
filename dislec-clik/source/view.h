@@ -2,15 +2,14 @@
 #define VIEW_H
 #include <QWidget>
 
+class Controller;
+
 class View
 {
 public:
-    View(QWidget * parent);
+    View();
     virtual ~View();
     virtual void setView() = 0;
-
-protected:
-    QWidget * _parent;
 };
 
 #endif // VIEW_H
