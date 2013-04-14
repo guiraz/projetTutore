@@ -1,5 +1,6 @@
 #include "controller.h"
-#include "viewconnection.h"
+#include "model.h"
+#include "view.h"
 
 Controller::Controller() : QWidget()
 {
@@ -15,6 +16,9 @@ Controller::Controller() : QWidget()
     this->setPalette(QPalette(QColor(192,192,255)));
     _v = new ViewConnection(this);
     _v->setView();
+
+    _m = new ModelConnection(this);
+    _m->setModel();
 }
 
 Controller::~Controller()
@@ -25,6 +29,10 @@ Controller::~Controller()
 
 void Controller::setUser()
 {
+    /*QStringList users(_m->getUsers());
+
+    for(int i=0; i<users.size(); i++)
+        _v->setComboBoxUser(users.at(i));*/
 }
 
 void Controller::removeView()
@@ -34,7 +42,7 @@ void Controller::removeView()
 
 void Controller::removeModel()
 {
-    //delete _m;
+    delete _m;
 }
 
 void Controller::quit()

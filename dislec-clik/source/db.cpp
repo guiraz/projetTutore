@@ -2,13 +2,39 @@
 
 Db::Db()
 {
-    if(QFile::exists("db.db")) //if db already exists
+    QString path(qApp->applicationDirPath());
+    path.append(QDir::separator()).append("db").append(QDir::separator()).append("dislekclik.sqlite");
+    path = QDir::toNativeSeparators(path);
+
+    QString type = QString("QSQLITE");
+    std::cout<<path.toStdString()<<std::endl;
+    std::cout<<type.toStdString()<<std::endl;
+
+    _db = new QSqlDatabase();
+
+    if(QFile::exists(path)) //if db already exists
     {
-        _db.addDatabase("QSQLITE", "db.db"); //launch it
+        _db->addDatabase(type); //launch it
+        _db->setDatabaseName(path);
+        _db->open();
     }
     else
     {
-        std::cerr<<"Could not open database."<<std::endl;
-        exit(-1);
+        _db->addDatabase(type); //vreate and launch it
+        _db->setDatabaseName(path);
+        _db->open();
+        createTables();
     }
+}
+
+QSqlError Db::lastError()
+{
+    return _db->lastError();
+}
+
+void Db::createTables()
+{
+    QSqlQuery query;
+    query.prepare("CREATE TABLE USERS (NAME VARCHAR(15) PRIMARY KEY);");
+    query.exec();
 }

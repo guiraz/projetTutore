@@ -1,10 +1,11 @@
+#include <QApplication>
+#include <QTextCodec>
 #include "controller.h"
-#include <qtextcodec.h>
 
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
-    QTextCodec::setCodecForCStrings(QTextCodec::codecForName("utf-8"));
+    QTextCodec::setCodecForCStrings(QTextCodec::codecForName("UTF-8"));
 
     Controller c;
     c.show();

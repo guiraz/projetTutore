@@ -1,6 +1,7 @@
 #include "viewconnection.h"
 #include "controller.h"
 
+
 ViewConnection::ViewConnection(Controller * parent) : View()
 {
     _parent = parent;
@@ -9,6 +10,7 @@ ViewConnection::ViewConnection(Controller * parent) : View()
 ViewConnection::~ViewConnection()
 {
     _parent = NULL;
+    delete _parent;
 }
 
 void ViewConnection::setView()
@@ -46,7 +48,7 @@ void ViewConnection::setView()
     _buttonQuit.setGeometry(_parent->width()/2-75, _parent->height()/2+75, 150, 30);
 }
 
-void ViewConnection::setComboBoxUser(QString & user)
+void ViewConnection::setComboBoxUser(const QString & user)
 {
     _comboBox.addItem(user);
 }

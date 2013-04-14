@@ -15,14 +15,16 @@ SOURCES +=  source/main.cpp\
             source/view.cpp \
             source/model.cpp \
             source/viewconnection.cpp \
-            source/controller.cpp
+            source/controller.cpp \
+    source/modelconnection.cpp
 
 HEADERS  += \
             source/db.h \
             source/view.h \
             source/model.h \
             source/viewconnection.h \
-            source/controller.h
+            source/controller.h \
+    source/modelconnection.h
 
 OBJECTS_DIR = build/object
 

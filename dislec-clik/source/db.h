@@ -1,16 +1,22 @@
 #ifndef DB_H
 #define DB_H
-
-#include <iostream>
+#include <QApplication>
+#include <QDir>
 #include <QSqlDatabase>
+#include <QSqlQuery>
 #include <QFile>
+#include <iostream>
+#include <QSqlError>
 
 class Db
 {
 public:
     Db();
+    QSqlError lastError();
 private:
-    QSqlDatabase _db;
+    QSqlDatabase * _db;
+
+    void createTables();
 };
 
 #endif // DB_H

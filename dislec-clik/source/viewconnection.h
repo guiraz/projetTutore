@@ -1,10 +1,9 @@
 #ifndef VIEWCONNECTION_H
 #define VIEWCONNECTION_H
 #include <QPushButton>
-#include <QObject>
 #include <QLabel>
 #include <QComboBox>
-#include <QPixmap>
+
 #include "view.h"
 
 class Controller;
@@ -15,7 +14,7 @@ public:
     ViewConnection(Controller * parent);
     ~ViewConnection();
     void setView();
-    void setComboBoxUser(QString & user);
+    void setComboBoxUser(const QString & user);
 
 private:
     QPushButton _buttonQuit, _buttonNew, _buttonConnect;

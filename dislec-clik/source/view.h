@@ -1,8 +1,6 @@
 #ifndef VIEW_H
 #define VIEW_H
-#include <QWidget>
-
-class Controller;
+#include <QString>
 
 class View
 {
@@ -10,6 +8,9 @@ public:
     View();
     virtual ~View();
     virtual void setView() = 0;
+
+    //ViewConnection*****************************
+    virtual void setComboBoxUser(const QString & user);
 };
 
 #endif // VIEW_H

@@ -3,14 +3,17 @@
 #define WIN_WIDTH 1024
 #define WIN_HEIGHT 768
 
+#include <QWidget>
 #include <QApplication>
 #include <QDesktopWidget>
 #include <QMessageBox>
-#include "model.h"
-#include "view.h"
-
 #include <iostream>
-using namespace std;
+
+#include "modelconnection.h"
+#include "viewconnection.h"
+
+class View;
+class Model;
 
 class Controller : public QWidget
 {
