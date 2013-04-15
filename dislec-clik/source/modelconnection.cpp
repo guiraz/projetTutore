@@ -35,8 +35,7 @@ int ModelConnection::getUsersSize()
 void ModelConnection::setModel()
 {
     QSqlQuery query;
-    query.prepare("SELECT * FROM USERS;");
-    query.exec();
+    query.exec("SELECT * FROM USERS;");
 
     if (query.first())
     {

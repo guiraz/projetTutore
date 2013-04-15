@@ -44,6 +44,9 @@ void Controller::quit()
 void Controller::newUser()
 {
     delete _v;
+    delete _m;
+    _m = new ModelNewUser(this, &_db);
+    _m->setModel();
     _v = new ViewNewUser(this);
     _v->setView();
 }
@@ -62,7 +65,19 @@ void Controller::newUserName(QString name)
 
 void Controller::retour()
 {
+    delete _m;
+    _m = new ModelConnection(this, &_db);
+    _m->setModel();
     delete _v;
     _v = new ViewConnection(this);
     _v->setView();
+}
+
+void Controller::addUser()
+{
+    if(_v->correctName())
+    {
+        _m->addUser(_v->getName());
+    }
+    retour();
 }

@@ -24,3 +24,7 @@ int Model::getUsersSize()
 {
     return 0;
 }
+
+void Model::addUser(QString name)
+{
+}

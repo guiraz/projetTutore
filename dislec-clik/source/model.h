@@ -13,6 +13,9 @@ public:
     virtual QStringList getUsers();
     virtual QString getUserAt(const int & pos);
     virtual int getUsersSize();
+
+    //NewUser
+    virtual void addUser(QString name);
 };
 
 #endif // MODEL_H

@@ -6,6 +6,10 @@ Db::Db()
     path.append(QDir::separator()).append("db").append(QDir::separator()).append("dislekclik.sqlite");
     path = QDir::toNativeSeparators(path);
 
+    QString pathDir(qApp->applicationDirPath());
+    pathDir.append(QDir::separator()).append("db").append(QDir::separator());
+    pathDir = QDir::toNativeSeparators(pathDir);
+
     QString type = QString("QSQLITE");
     _db = new QSqlDatabase(QSqlDatabase::addDatabase(type));
 
@@ -16,9 +20,11 @@ Db::Db()
     }
     else
     {
+        QDir d;
+        d.mkpath(pathDir);
         _db->setDatabaseName(path);
         _db->open();
-        createTables();
+        createDB();
     }
 }
 
@@ -32,9 +38,13 @@ void Db::closeDB()
     _db->close();
 }
 
-void Db::createTables()
+QSqlDatabase * Db::getDBRef()
+{
+    return _db;
+}
+
+void Db::createDB()
 {
     QSqlQuery query;
-    query.prepare("CREATE TABLE USERS (NAME VARCHAR(15) PRIMARY KEY);");
-    query.exec();
+    query.exec("CREATE TABLE USERS (NAME VARCHAR(15) UNIQUE NOT NULL, PRIMARY KEY (NAME));");
 }

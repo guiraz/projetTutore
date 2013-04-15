@@ -17,7 +17,8 @@ SOURCES +=  source/main.cpp\
             source/viewconnection.cpp \
             source/controller.cpp \
     source/modelconnection.cpp \
-    source/viewnewuser.cpp
+    source/viewnewuser.cpp \
+    source/modelnewuser.cpp
 
 HEADERS  += \
             source/db.h \
@@ -26,14 +27,16 @@ HEADERS  += \
             source/viewconnection.h \
             source/controller.h \
     source/modelconnection.h \
-    source/viewnewuser.h
+    source/viewnewuser.h \
+    source/modelnewuser.h
 
 OBJECTS_DIR = build/object
 
 MOC_DIR = build/moc
 
-QMAKE_DISTCLEAN = -r build/ \
-                  dislec-clik.pro.user
+QMAKE_DISTCLEAN = -rf build/ \
+                  dislec-clik.pro.user \
+                  db/
 
 OTHER_FILES += \
     images/dislekclik.png

@@ -14,10 +14,11 @@ public:
     Db();
     QSqlError lastError();
     void closeDB();
+    QSqlDatabase * getDBRef();
 private:
     QSqlDatabase * _db;
 
-    void createTables();
+    void createDB();
 };
 
 #endif // DB_H

@@ -16,6 +16,8 @@ public:
     void setView();
 
     void erreur(bool affiche);
+    bool correctName();
+    QString getName();
 private:
     Controller * _parent;
     QPushButton _buttonRetour, _buttonCreer;

@@ -14,6 +14,8 @@ public:
 
     //ViewNewUser********************************
     virtual void erreur(bool affiche);
+    virtual bool correctName();
+    virtual QString getName();
 };
 
 #endif // VIEW_H

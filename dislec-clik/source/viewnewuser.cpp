@@ -34,7 +34,7 @@ void ViewNewUser::setView()
 
     _buttonCreer.setParent(_parent);
     _buttonCreer.setText("Creer");
-    QObject::connect(&_buttonCreer, SIGNAL(clicked()),_parent,  SLOT(connect()));
+    QObject::connect(&_buttonCreer, SIGNAL(clicked()),_parent,  SLOT(addUser()));
     _buttonCreer.setGeometry(_parent->width()/2-75, _parent->height()/2+5, 150, 30);
     _buttonCreer.setVisible(true);
 
@@ -54,4 +54,14 @@ void ViewNewUser::setView()
 void ViewNewUser::erreur(bool affiche)
 {
     _labelErreur.setVisible(affiche);
+}
+
+bool ViewNewUser::correctName()
+{
+    return !_labelErreur.isVisible();
+}
+
+QString ViewNewUser::getName()
+{
+    return _lineEdit.text();
 }
