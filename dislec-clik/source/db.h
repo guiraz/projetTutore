@@ -13,6 +13,7 @@ class Db
 public:
     Db();
     QSqlError lastError();
+    void closeDB();
 private:
     QSqlDatabase * _db;
 

@@ -9,6 +9,5 @@ int main(int argc, char *argv[])
 
     Controller c;
     c.show();
-
     return a.exec();
 }

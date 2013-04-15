@@ -11,6 +11,7 @@
 
 #include "modelconnection.h"
 #include "viewconnection.h"
+#include "viewnewuser.h"
 #include "db.h"
 
 class View;
@@ -35,8 +36,14 @@ private:
 
 private slots:
     void quit();
+
+    //Connection*****
     void newUser();
     void connect();
+
+    //New User****
+    void newUserName(QString name);
+    void retour();
 
 };
 

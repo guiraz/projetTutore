@@ -10,7 +10,8 @@ class ModelConnection : public Model
 public:
     ModelConnection(Controller * parent, Db * db);
     ~ModelConnection();
-    virtual void setModel();
+    void setModel();
+
     QStringList getUsers();
     QString getUserAt(const int & pos);
     int getUsersSize();

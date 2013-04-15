@@ -16,7 +16,8 @@ SOURCES +=  source/main.cpp\
             source/model.cpp \
             source/viewconnection.cpp \
             source/controller.cpp \
-    source/modelconnection.cpp
+    source/modelconnection.cpp \
+    source/viewnewuser.cpp
 
 HEADERS  += \
             source/db.h \
@@ -24,7 +25,8 @@ HEADERS  += \
             source/model.h \
             source/viewconnection.h \
             source/controller.h \
-    source/modelconnection.h
+    source/modelconnection.h \
+    source/viewnewuser.h
 
 OBJECTS_DIR = build/object
 

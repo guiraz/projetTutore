@@ -24,24 +24,15 @@ Controller::Controller() : QWidget()
 
 Controller::~Controller()
 {
-    removeView();
-    removeModel();
+    delete _v;
+    delete _m;
+    _db.closeDB();
 }
 
 void Controller::setUser()
 {
     for(int i=0; i<_m->getUsersSize(); i++)
         _v->setComboBoxUser(_m->getUserAt(i));
-}
-
-void Controller::removeView()
-{
-    delete _v;
-}
-
-void Controller::removeModel()
-{
-    delete _m;
 }
 
 void Controller::quit()
@@ -52,8 +43,26 @@ void Controller::quit()
 
 void Controller::newUser()
 {
+    delete _v;
+    _v = new ViewNewUser(this);
+    _v->setView();
 }
 
 void Controller::connect()
 {
+}
+
+void Controller::newUserName(QString name)
+{
+    if((name.size()>15) || (name.size()<1))
+        _v->erreur(true);
+    else
+        _v->erreur(false);
+}
+
+void Controller::retour()
+{
+    delete _v;
+    _v = new ViewConnection(this);
+    _v->setView();
 }

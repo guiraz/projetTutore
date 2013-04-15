@@ -13,7 +13,6 @@ Db::Db()
     {
         _db->setDatabaseName(path);
         _db->open();
-        std::cout<<lastError().text().toStdString()<<std::endl;
     }
     else
     {
@@ -26,6 +25,11 @@ Db::Db()
 QSqlError Db::lastError()
 {
     return _db->lastError();
+}
+
+void Db::closeDB()
+{
+    _db->close();
 }
 
 void Db::createTables()
