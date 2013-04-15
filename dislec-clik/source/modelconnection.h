@@ -8,13 +8,15 @@ class Controller;
 class ModelConnection : public Model
 {
 public:
-    ModelConnection(Controller * parent);
+    ModelConnection(Controller * parent, Db * db);
     ~ModelConnection();
     virtual void setModel();
     QStringList getUsers();
+    QString getUserAt(const int & pos);
+    int getUsersSize();
 
 private:
-    Db _db;
+    Db * _db;
     Controller * _parent;
     QStringList _users;
 };

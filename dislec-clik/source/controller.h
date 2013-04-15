@@ -11,6 +11,7 @@
 
 #include "modelconnection.h"
 #include "viewconnection.h"
+#include "db.h"
 
 class View;
 class Model;
@@ -27,6 +28,7 @@ public:
 private:
     View * _v;
     Model * _m;
+    Db _db;
 
     void removeView();
     void removeModel();

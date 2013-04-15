@@ -14,11 +14,12 @@ Controller::Controller() : QWidget()
     setFixedSize(WIN_WIDTH, WIN_HEIGHT);
 
     this->setPalette(QPalette(QColor(192,192,255)));
+
+    _m = new ModelConnection(this, &_db);
+    _m->setModel();
+
     _v = new ViewConnection(this);
     _v->setView();
-
-    _m = new ModelConnection(this);
-    _m->setModel();
 }
 
 Controller::~Controller()
@@ -29,10 +30,8 @@ Controller::~Controller()
 
 void Controller::setUser()
 {
-    /*QStringList users(_m->getUsers());
-
-    for(int i=0; i<users.size(); i++)
-        _v->setComboBoxUser(users.at(i));*/
+    for(int i=0; i<_m->getUsersSize(); i++)
+        _v->setComboBoxUser(_m->getUserAt(i));
 }
 
 void Controller::removeView()

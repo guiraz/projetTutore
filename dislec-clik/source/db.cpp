@@ -7,20 +7,16 @@ Db::Db()
     path = QDir::toNativeSeparators(path);
 
     QString type = QString("QSQLITE");
-    std::cout<<path.toStdString()<<std::endl;
-    std::cout<<type.toStdString()<<std::endl;
-
-    _db = new QSqlDatabase();
+    _db = new QSqlDatabase(QSqlDatabase::addDatabase(type));
 
     if(QFile::exists(path)) //if db already exists
     {
-        _db->addDatabase(type); //launch it
         _db->setDatabaseName(path);
         _db->open();
+        std::cout<<lastError().text().toStdString()<<std::endl;
     }
     else
     {
-        _db->addDatabase(type); //vreate and launch it
         _db->setDatabaseName(path);
         _db->open();
         createTables();

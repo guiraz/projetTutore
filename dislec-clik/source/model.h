@@ -9,6 +9,8 @@ public:
     virtual ~Model();
     virtual void setModel() = 0;
     virtual QStringList getUsers();
+    virtual QString getUserAt(const int & pos);
+    virtual int getUsersSize();
 };
 
 #endif // MODEL_H
