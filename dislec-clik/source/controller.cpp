@@ -57,10 +57,7 @@ void Controller::connect()
     {
         _user = _m->getUserAt(_v->getCurrent());
 
-        delete _m;
-        delete _v;
-        _v = new ViewMenu(this);
-        _v->setView();
+        menu();
     }
 }
 
@@ -89,4 +86,33 @@ void Controller::addUser()
         _m->addUser(_v->getName());
     }
     retourConnection();
+}
+
+void Controller::menuExercices()
+{
+    delete _m;
+    delete _v;
+    _v = new ViewMenuExercices(this);
+    _v->setView();
+}
+
+
+void Controller::menuStatistiques()
+{
+    delete _m;
+    _m = new ModelStat(this, &_db, &_user);
+    _m->setModel();
+    delete _v;
+    _v = new ViewStat(this);
+    _v->setView();
+}
+
+void Controller::menu()
+{
+    delete _m;
+    _m = NULL;
+
+    delete _v;
+    _v = new ViewMenu(this);
+    _v->setView();
 }

@@ -40,7 +40,7 @@ void ViewNewUser::setView()
 
     _buttonRetour.setParent(_parent);
     _buttonRetour.setText("Retour");
-    QObject::connect(&_buttonRetour, SIGNAL(clicked()),_parent,  SLOT(retour()));
+    QObject::connect(&_buttonRetour, SIGNAL(clicked()),_parent,  SLOT(retourConnection()));
     _buttonRetour.setGeometry(_parent->width()/2-75, _parent->height()/2+40, 150, 30);
     _buttonRetour.setVisible(true);
 

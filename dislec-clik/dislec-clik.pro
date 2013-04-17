@@ -15,7 +15,10 @@ SOURCES +=  source/main.cpp\
             source/modelconnection.cpp \
             source/viewnewuser.cpp \
             source/modelnewuser.cpp \
-    source/viewmenu.cpp
+    source/viewmenu.cpp \
+    source/viewstat.cpp \
+    source/modelstat.cpp \
+    source/viewmenuexercices.cpp
 
 HEADERS  += source/db.h \
             source/view.h \
@@ -25,7 +28,10 @@ HEADERS  += source/db.h \
             source/modelconnection.h \
             source/viewnewuser.h \
             source/modelnewuser.h \
-    source/viewmenu.h
+    source/viewmenu.h \
+    source/viewstat.h \
+    source/modelstat.h \
+    source/viewmenuexercices.h
 
 OTHER_FILES += images/dislekclik.png
 

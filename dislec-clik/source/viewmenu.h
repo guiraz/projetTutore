@@ -1,6 +1,6 @@
 #ifndef VIEWMENU_H
 #define VIEWMENU_H
-#include <QPushButton>
+#include <QToolButton>
 #include <QPixmap>
 #include <QIcon>
 #include <QLayout>
@@ -13,11 +13,12 @@ class ViewMenu : public View
 {
 public:
     ViewMenu(Controller * parent);
+    ~ViewMenu();
     void setView();
 
 private :
     Controller * _parent;
-    QPushButton _buttonQuit, _buttonReturn, _buttonExercices, _buttonStat;
+    QToolButton _buttonQuit, _buttonReturn, _buttonExercices, _buttonStat;
 };
 
 #endif // VIEWMENU_H
