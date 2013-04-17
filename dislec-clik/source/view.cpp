@@ -12,6 +12,11 @@ void View::setComboBoxUser(const QString &user)
 {
 }
 
+int View::getCurrent()
+{
+   return -1;
+}
+
 void View::erreur(bool affiche)
 {
 }

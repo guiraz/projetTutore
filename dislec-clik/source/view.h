@@ -11,6 +11,7 @@ public:
 
     //ViewConnection*****************************
     virtual void setComboBoxUser(const QString & user);
+    virtual int getCurrent();
 
     //ViewNewUser********************************
     virtual void erreur(bool affiche);

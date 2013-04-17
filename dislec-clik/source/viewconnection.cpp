@@ -57,3 +57,8 @@ void ViewConnection::setComboBoxUser(const QString & user)
 {
     _comboBox.addItem(user);
 }
+
+int ViewConnection::getCurrent()
+{
+    return _comboBox.currentIndex();
+}

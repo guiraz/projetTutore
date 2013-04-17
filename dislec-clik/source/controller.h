@@ -10,9 +10,10 @@
 #include <iostream>
 
 #include "modelconnection.h"
+#include "modelnewuser.h"
 #include "viewconnection.h"
 #include "viewnewuser.h"
-#include "modelnewuser.h"
+#include "viewmenu.h"
 #include "db.h"
 
 class View;
@@ -31,6 +32,7 @@ private:
     View * _v;
     Model * _m;
     Db _db;
+    QString _user;
 
     void removeView();
     void removeModel();
@@ -44,7 +46,7 @@ private slots:
 
     //New User****
     void newUserName(QString name);
-    void retour();
+    void retourConnection();
     void addUser();
 
 };

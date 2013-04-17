@@ -14,7 +14,9 @@ public:
     ViewConnection(Controller * parent);
     ~ViewConnection();
     void setView();
+
     void setComboBoxUser(const QString & user);
+    int getCurrent();
 
 private:
     QPushButton _buttonQuit, _buttonNew, _buttonConnect;

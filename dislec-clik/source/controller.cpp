@@ -53,6 +53,15 @@ void Controller::newUser()
 
 void Controller::connect()
 {
+    if(_m->getUsersSize() > 0)
+    {
+        _user = _m->getUserAt(_v->getCurrent());
+
+        delete _m;
+        delete _v;
+        _v = new ViewMenu(this);
+        _v->setView();
+    }
 }
 
 void Controller::newUserName(QString name)
@@ -63,7 +72,7 @@ void Controller::newUserName(QString name)
         _v->erreur(false);
 }
 
-void Controller::retour()
+void Controller::retourConnection()
 {
     delete _m;
     _m = new ModelConnection(this, &_db);
@@ -79,5 +88,5 @@ void Controller::addUser()
     {
         _m->addUser(_v->getName());
     }
-    retour();
+    retourConnection();
 }
