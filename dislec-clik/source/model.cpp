@@ -28,3 +28,20 @@ int Model::getUsersSize()
 void Model::addUser(QString name)
 {
 }
+
+int Model::getNbExo()
+{
+    return 0;
+}
+
+QVector<int> Model::getNbTentatives()
+{
+    QVector<int> r;
+    return r;
+}
+
+QVector<int> Model::getMoyennes()
+{
+    QVector<int> r;
+    return r;
+}

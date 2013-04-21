@@ -1,6 +1,7 @@
 #ifndef MODEL_H
 #define MODEL_H
 #include <QStringList>
+#include <QVector>
 
 class Model
 {
@@ -16,6 +17,11 @@ public:
 
     //NewUser
     virtual void addUser(QString name);
+
+    //Stat
+    virtual int getNbExo();
+    virtual QVector<int> getNbTentatives();
+    virtual QVector<int> getMoyennes();
 };
 
 #endif // MODEL_H

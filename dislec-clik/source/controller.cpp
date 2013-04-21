@@ -35,6 +35,26 @@ void Controller::setUser()
         _v->setComboBoxUser(_m->getUserAt(i));
 }
 
+QString Controller::getUser()
+{
+    return _user;
+}
+
+int Controller::getNbExo()
+{
+    return _m->getNbExo();
+}
+
+QVector<int> Controller::getTentatives()
+{
+    return _m->getNbTentatives();
+}
+
+QVector<int> Controller::getMoyennes()
+{
+    return _m->getMoyennes();
+}
+
 void Controller::quit()
 {
     if(QMessageBox::warning(NULL, "Fermeture du programme", "Etes vous sure de vouloir arrêter le programme?", QMessageBox::Ok, QMessageBox::Abort) == QMessageBox::Ok)
@@ -100,7 +120,7 @@ void Controller::menuExercices()
 void Controller::menuStatistiques()
 {
     delete _m;
-    _m = new ModelStat(this, &_db, &_user);
+    _m = new ModelStat(this, &_db);
     _m->setModel();
     delete _v;
     _v = new ViewStat(this);

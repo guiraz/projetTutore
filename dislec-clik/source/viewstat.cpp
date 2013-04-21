@@ -9,6 +9,8 @@ ViewStat::~ViewStat()
 {
     _parent = NULL;
     delete _parent;
+
+    delete[] _labels;
 }
 
 void ViewStat::setView()
@@ -40,4 +42,54 @@ void ViewStat::setView()
     _buttonReturn.setStyleSheet("background-color : #92C8FF;");
     _buttonReturn.setVisible(true);
     QObject::connect(&_buttonReturn, SIGNAL(clicked()), _parent, SLOT(menu()));
+
+    _widgetStat.setParent(_parent);
+    _widgetStat.setStyleSheet("background-color : #92C8FF;");
+    _widgetStat.setGeometry(5,5,_parent->size().width()-10, (_parent->size().height()-15)/2);
+    _widgetStat.setLayout(&_layout);
+    _widgetStat.setVisible(true);
+
+    QVector<int> tentatives = _parent->getTentatives();
+    QVector<int> moyennes = _parent->getMoyennes();
+
+    int nbLabels = (_parent->getNbExo()+1)*3;
+    _labels = new QLabel[nbLabels];
+
+    for(int i=0; i<nbLabels; i++)
+    {
+        _labels[i].setFont(QFont("Times New Roman", 18));
+        _labels[i].setStyleSheet(".QLabel{background-color : pink;}");
+        _labels[i].setAlignment(Qt::AlignCenter);
+    }
+
+    int compteur = 0;
+    for(int i=0; i<_parent->getNbExo()+1; i++)
+    {
+        if(i==0)
+        {
+            _labels[compteur].setText(_parent->getUser());
+            _layout.addWidget(&_labels[compteur], 0, 0);
+            compteur++;
+            _labels[compteur].setText("Nombre de tentatives :");
+            _layout.addWidget(&_labels[compteur], 1, 0);
+            compteur++;
+            _labels[compteur].setText("Moyenne :");
+            _layout.addWidget(&_labels[compteur], 2, 0);
+            compteur++;
+        }
+        else
+        {
+            _labels[compteur].setText("Exercice "+QString::number(i)+" :");
+            _layout.addWidget(&_labels[compteur], 0, i);
+            compteur++;
+
+            _labels[compteur].setText(QString::number(tentatives[i-1]));
+            _layout.addWidget(&_labels[compteur], 1, i);
+            compteur++;
+
+            _labels[compteur].setText(QString::number(moyennes[i-1]));
+            _layout.addWidget(&_labels[compteur], 2, i);
+            compteur++;
+        }
+    }
 }

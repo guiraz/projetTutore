@@ -164,7 +164,7 @@ void Db::createDB()
     query.exec("CREATE TABLE [USERS] ([NAME] VARCHAR, CONSTRAINT [sqlite_autoindex_USERS_1] PRIMARY KEY ([NAME]));");
 
     query.exec("DROP TABLE IF EXISTS [SUIVIS];");
-    query.exec("CREATE TABLE [SUIVIS] ([ID] INTEGER PRIMARY KEY, [USERS_NAME] VARCHAR REFERENCES [USERS]([NAME]), [EXERCICE_ID] INTEGER REFERENCES [EXERCICES]([ID]), [NOTE] INTEGER;");
+    query.exec("CREATE TABLE [SUIVIS] ([ID] INTEGER PRIMARY KEY, [USER_NAME] VARCHAR REFERENCES [USERS]([NAME]), [EXERCICE_ID] INTEGER REFERENCES [EXERCICES]([ID]), [NOTE] INTEGER;");
 
     query.exec("commit transaction;");
     query.exec("pragma foreign_keys = on;");

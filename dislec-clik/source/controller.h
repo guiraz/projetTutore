@@ -7,6 +7,7 @@
 #include <QApplication>
 #include <QDesktopWidget>
 #include <QMessageBox>
+#include <QVector>
 #include <iostream>
 
 #include "modelconnection.h"
@@ -32,6 +33,12 @@ public:
     Controller();
     ~Controller();
     void setUser();
+    QString getUser();
+
+    //Stat*****
+    int getNbExo();
+    QVector<int> getTentatives();
+    QVector<int> getMoyennes();
 
 private:
     View * _v;
