@@ -16,7 +16,7 @@ void ViewStat::setView()
     QIcon retourI, exitI;
     QString retourT("Retour"), exitT("Quitter");
 
-    retourI.addPixmap(QPixmap("images/retour.jpg"));
+    retourI.addPixmap(QPixmap("images/retour.png"));
     exitI.addPixmap(QPixmap("images/exit.png"));
 
     _buttonQuit.setParent(_parent);

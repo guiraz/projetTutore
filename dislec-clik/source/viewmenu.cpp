@@ -16,9 +16,9 @@ void ViewMenu::setView()
     QIcon goI, retourI, statI, exitI;
     QString goT("Exercices"), retourT("Retour"), statT("Statistiques"), exitT("Quitter");
 
-    goI.addPixmap(QPixmap("images/go.gif"));
-    retourI.addPixmap(QPixmap("images/retour.jpg"));
-    statI.addPixmap(QPixmap("images/stat.jpg"));
+    goI.addPixmap(QPixmap("images/start.png"));
+    retourI.addPixmap(QPixmap("images/retour.png"));
+    statI.addPixmap(QPixmap("images/stat.png"));
     exitI.addPixmap(QPixmap("images/exit.png"));
 
 

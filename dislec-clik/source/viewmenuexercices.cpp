@@ -21,7 +21,7 @@ void ViewMenuExercices::setView()
     exo2I.addPixmap(QPixmap("images/process.png"));
     prevI.addPixmap(QPixmap("images/rewind.png"));
     nextI.addPixmap(QPixmap("images/forward.png"));
-    retourI.addPixmap(QPixmap("images/retour.jpg"));
+    retourI.addPixmap(QPixmap("images/retour.png"));
     exitI.addPixmap(QPixmap("images/exit.png"));
 
     int x = (_parent->size().width()-15)/2;
