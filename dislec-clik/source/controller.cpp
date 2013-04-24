@@ -40,9 +40,9 @@ QString Controller::getUser()
     return _user;
 }
 
-int Controller::getNbExo()
+QStringList Controller::getExos()
 {
-    return _m->getNbExo();
+    return _m->getExos();
 }
 
 QVector<int> Controller::getTentatives()
@@ -111,11 +111,13 @@ void Controller::addUser()
 void Controller::menuExercices()
 {
     delete _m;
+    _m = new ModelMenuExercices(&_db, this);
+    _m->setModel();
     delete _v;
     _v = new ViewMenuExercices(this);
     _v->setView();
+    _v->changeTextButton(_m->firstExo(), _m->secondExo());
 }
-
 
 void Controller::menuStatistiques()
 {
@@ -135,4 +137,41 @@ void Controller::menu()
     delete _v;
     _v = new ViewMenu(this);
     _v->setView();
+}
+
+void Controller::nextExo()
+{
+    _m->next();
+    _v->changeTextButton(_m->firstExo(), _m->secondExo());
+}
+
+void Controller::prevExo()
+{
+    _m->prev();
+    _v->changeTextButton(_m->firstExo(), _m->secondExo());
+}
+
+void Controller::firstExo()
+{
+    QString exo = _m->firstExo();
+    delete _m;
+    _m = new ModelExercice(exo, &_db, this);
+    _m->setModel();
+    delete _v;
+}
+
+void Controller::secondExo()
+{
+    QString exo = _m->secondExo();
+    delete _m;
+    _m = new ModelExercice(exo, &_db, this);
+    _m->setModel();
+    delete _v;
+}
+
+void Controller::keyPressEvent(QKeyEvent *event)
+{
+    QWidget::keyPressEvent(event);
+    if(event->key()==Qt::Key_Escape)
+        quit();
 }

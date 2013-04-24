@@ -15,6 +15,7 @@ ViewStat::~ViewStat()
 
 void ViewStat::setView()
 {
+    _exercices = _parent->getExos();
     QIcon retourI, exitI;
     QString retourT("Retour"), exitT("Quitter");
 
@@ -52,7 +53,7 @@ void ViewStat::setView()
     QVector<int> tentatives = _parent->getTentatives();
     QVector<int> moyennes = _parent->getMoyennes();
 
-    int nbLabels = (_parent->getNbExo()+1)*3;
+    int nbLabels = (_exercices.size()+1)*3;
     _labels = new QLabel[nbLabels];
 
     for(int i=0; i<nbLabels; i++)
@@ -63,7 +64,7 @@ void ViewStat::setView()
     }
 
     int compteur = 0;
-    for(int i=0; i<_parent->getNbExo()+1; i++)
+    for(int i=0; i<_exercices.size()+1; i++)
     {
         if(i==0)
         {
@@ -79,7 +80,7 @@ void ViewStat::setView()
         }
         else
         {
-            _labels[compteur].setText("Exercice "+QString::number(i)+" :");
+            _labels[compteur].setText(_exercices[i-1]+" :");
             _layout.addWidget(&_labels[compteur], 0, i);
             compteur++;
 

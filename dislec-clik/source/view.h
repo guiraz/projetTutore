@@ -17,6 +17,9 @@ public:
     virtual void erreur(bool affiche);
     virtual bool correctName();
     virtual QString getName();
+
+    //ViewMenuExercices**************************
+    virtual void changeTextButton(QString exo1, QString exo2);
 };
 
 #endif // VIEW_H

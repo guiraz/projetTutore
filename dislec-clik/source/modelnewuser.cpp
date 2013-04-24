@@ -9,6 +9,10 @@ ModelNewUser::ModelNewUser(Controller * parent, Db * db) : Model()
 
 ModelNewUser::~ModelNewUser()
 {
+    _parent = NULL;
+    delete _parent;
+    _db = NULL;
+    delete _db;
 }
 
 void ModelNewUser::setModel()

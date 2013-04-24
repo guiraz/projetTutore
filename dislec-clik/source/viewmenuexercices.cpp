@@ -37,7 +37,7 @@ void ViewMenuExercices::setView()
     _buttonExo1.setFont(QFont("Times New Roman", 24));
     _buttonExo1.setStyleSheet("background-color : #92C8FF;");
     _buttonExo1.setVisible(true);
-    //QObject::connect(&_buttonExo1, SIGNAL(clicked()), _parent, SLOT(menuExercices()));
+    QObject::connect(&_buttonExo1, SIGNAL(clicked()), _parent, SLOT(firstExo()));
 
     _buttonExo2.setParent(_parent);
     _buttonExo2.setGeometry(x+10, 5, x, y);
@@ -48,7 +48,7 @@ void ViewMenuExercices::setView()
     _buttonExo2.setFont(QFont("Times New Roman", 24));
     _buttonExo2.setStyleSheet("background-color : #92C8FF;");
     _buttonExo2.setVisible(true);
-    //QObject::connect(&_buttonExo2, SIGNAL(clicked()), _parent, SLOT(menuStatistiques()));
+    QObject::connect(&_buttonExo2, SIGNAL(clicked()), _parent, SLOT(secondExo()));
 
     _buttonPrev.setParent(_parent);
     _buttonPrev.setGeometry(5, y+10, x, y);
@@ -59,7 +59,7 @@ void ViewMenuExercices::setView()
     _buttonPrev.setFont(QFont("Times New Roman", 24));
     _buttonPrev.setStyleSheet("background-color : #92C8FF;");
     _buttonPrev.setVisible(true);
-    //QObject::connect(&_buttonPrev, SIGNAL(clicked()), _parent, SLOT(quit()));
+    QObject::connect(&_buttonPrev, SIGNAL(clicked()), _parent, SLOT(prevExo()));
 
     _buttonNext.setParent(_parent);
     _buttonNext.setGeometry(x+10, y+10, x, y);
@@ -70,7 +70,7 @@ void ViewMenuExercices::setView()
     _buttonNext.setFont(QFont("Times New Roman", 24));
     _buttonNext.setStyleSheet("background-color : #92C8FF;");
     _buttonNext.setVisible(true);
-    //QObject::connect(&_buttonNext, SIGNAL(clicked()), _parent, SLOT(retourConnection()));
+    QObject::connect(&_buttonNext, SIGNAL(clicked()), _parent, SLOT(nextExo()));
 
     _buttonReturn.setParent(_parent);
     _buttonReturn.setGeometry(5, (2*y)+15, x, y);
@@ -93,4 +93,10 @@ void ViewMenuExercices::setView()
     _buttonQuit.setStyleSheet("background-color : #92C8FF;");
     _buttonQuit.setVisible(true);
     QObject::connect(&_buttonQuit, SIGNAL(clicked()), _parent, SLOT(quit()));
+}
+
+void ViewMenuExercices::changeTextButton(QString exo1, QString exo2)
+{
+    _buttonExo1.setText(exo1);
+    _buttonExo2.setText(exo2);
 }

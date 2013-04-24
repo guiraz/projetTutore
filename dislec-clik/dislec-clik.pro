@@ -1,6 +1,6 @@
 CONFIG += qt
 
-QT += core gui sql widgets
+QT += core gui sql
 
 TARGET = dislec-clik
 TEMPLATE = app
@@ -18,7 +18,9 @@ SOURCES +=  source/main.cpp\
     source/viewmenu.cpp \
     source/viewstat.cpp \
     source/modelstat.cpp \
-    source/viewmenuexercices.cpp
+    source/viewmenuexercices.cpp \
+    source/modelmenuexercices.cpp \
+    source/modelexercice.cpp
 
 HEADERS  += source/db.h \
             source/view.h \
@@ -31,7 +33,9 @@ HEADERS  += source/db.h \
     source/viewmenu.h \
     source/viewstat.h \
     source/modelstat.h \
-    source/viewmenuexercices.h
+    source/viewmenuexercices.h \
+    source/modelmenuexercices.h \
+    source/modelexercice.h
 
 OTHER_FILES += images/dislekclik.png
 

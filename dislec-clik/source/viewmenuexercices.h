@@ -13,6 +13,7 @@ public:
     ViewMenuExercices(Controller * parent);
     ~ViewMenuExercices();
     void setView();
+    void changeTextButton(QString exo1, QString exo2);
 
 private:
     Controller * _parent;

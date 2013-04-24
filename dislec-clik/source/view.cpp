@@ -30,3 +30,7 @@ QString View::getName()
 {
     return "";
 }
+
+void View::changeTextButton(QString exo1, QString exo2)
+{
+}

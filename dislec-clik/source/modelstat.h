@@ -16,7 +16,7 @@ public:
     ~ModelStat();
     void setModel();
 
-    int getNbExo();
+    QStringList getExos();
     QVector<int> getNbTentatives();
     QVector<int> getMoyennes();
 

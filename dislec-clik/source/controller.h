@@ -8,11 +8,14 @@
 #include <QDesktopWidget>
 #include <QMessageBox>
 #include <QVector>
+#include <QKeyEvent>
 #include <iostream>
 
 #include "modelconnection.h"
 #include "modelnewuser.h"
 #include "modelstat.h"
+#include "modelmenuexercices.h"
+#include "modelexercice.h"
 
 #include "viewconnection.h"
 #include "viewnewuser.h"
@@ -36,7 +39,7 @@ public:
     QString getUser();
 
     //Stat*****
-    int getNbExo();
+    QStringList getExos();
     QVector<int> getTentatives();
     QVector<int> getMoyennes();
 
@@ -67,6 +70,15 @@ private slots:
 
     //Stat****
     void menu();
+
+    //MenuExercices****
+    void nextExo();
+    void prevExo();
+    void firstExo();
+    void secondExo();
+
+protected:
+    void keyPressEvent ( QKeyEvent * event );
 
 };
 

@@ -22,6 +22,7 @@ private :
     QWidget _widgetStat;
     QGridLayout _layout;
     QLabel * _labels;
+    QStringList _exercices;
 };
 
 #endif // VIEWSTAT_H

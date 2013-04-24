@@ -29,9 +29,9 @@ void Model::addUser(QString name)
 {
 }
 
-int Model::getNbExo()
+QStringList Model::getExos()
 {
-    return 0;
+    return QStringList();
 }
 
 QVector<int> Model::getNbTentatives()
@@ -44,4 +44,22 @@ QVector<int> Model::getMoyennes()
 {
     QVector<int> r;
     return r;
+}
+
+void Model::next()
+{
+}
+
+void Model::prev()
+{
+}
+
+QString Model::firstExo()
+{
+    return "";
+}
+
+QString Model::secondExo()
+{
+    return "";
 }

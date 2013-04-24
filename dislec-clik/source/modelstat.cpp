@@ -44,9 +44,17 @@ void ModelStat::setModel()
     }
 }
 
-int ModelStat::getNbExo()
+QStringList ModelStat::getExos()
 {
-    return _nbExo;
+    QStringList sl;
+    QSqlQuery query;
+    query.exec("SELECT NAME FROM EXERCICES;");
+    query.first();
+    do
+    {
+        sl.append(query.value(0).toString());
+    }while(query.next());
+    return sl;
 }
 
 QVector<int> ModelStat::getNbTentatives()

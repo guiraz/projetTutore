@@ -19,9 +19,15 @@ public:
     virtual void addUser(QString name);
 
     //Stat
-    virtual int getNbExo();
+    virtual QStringList getExos();
     virtual QVector<int> getNbTentatives();
     virtual QVector<int> getMoyennes();
+
+    //MenuExercices
+    virtual void next();
+    virtual void prev();
+    virtual QString firstExo();
+    virtual QString secondExo();
 };
 
 #endif // MODEL_H
