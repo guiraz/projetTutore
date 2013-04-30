@@ -63,3 +63,21 @@ QString Model::secondExo()
 {
     return "";
 }
+
+QString Model::getExo()
+{
+    return "";
+}
+
+QString Model::getDesc()
+{
+    return "";
+}
+
+void Model::nextPage()
+{
+}
+
+void Model::answer(int answer)
+{
+}

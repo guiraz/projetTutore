@@ -1,6 +1,7 @@
 #ifndef MODELEXERCICE_H
 #define MODELEXERCICE_H
 #include <QDebug>
+#include <time.h>
 
 #include "model.h"
 #include "db.h"
@@ -14,6 +15,11 @@ public:
     ~ModelExercice();
     void setModel();
 
+    QString getExo();
+    QString getDesc();
+    void nextPage();
+    void answer(int);
+
 private:
     QString _exo;
     QString _desc;
@@ -21,6 +27,8 @@ private:
     Controller * _parent;
 
     int _currentPage;
+    int _currentAnswer;
+    int _correctAnswer;
 
     QVector<int> _listeExo;
     QStringList _listePropositions;

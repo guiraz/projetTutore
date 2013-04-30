@@ -34,3 +34,11 @@ QString View::getName()
 void View::changeTextButton(QString exo1, QString exo2)
 {
 }
+
+void View::setButtonExo(QStringList list)
+{
+}
+
+void View::setMarkPage(QString mark)
+{
+}

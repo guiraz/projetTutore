@@ -1,6 +1,7 @@
 #ifndef VIEW_H
 #define VIEW_H
 #include <QString>
+#include <QStringList>
 
 class View
 {
@@ -20,6 +21,10 @@ public:
 
     //ViewMenuExercices**************************
     virtual void changeTextButton(QString exo1, QString exo2);
+
+    //ViewExercices*******************************
+    virtual void setButtonExo(QStringList list);
+    virtual void setMarkPage(QString mark);
 };
 
 #endif // VIEW_H

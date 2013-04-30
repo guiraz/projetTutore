@@ -20,7 +20,8 @@ SOURCES +=  source/main.cpp\
     source/modelstat.cpp \
     source/viewmenuexercices.cpp \
     source/modelmenuexercices.cpp \
-    source/modelexercice.cpp
+    source/modelexercice.cpp \
+    source/viewexercice.cpp
 
 HEADERS  += source/db.h \
             source/view.h \
@@ -35,7 +36,8 @@ HEADERS  += source/db.h \
     source/modelstat.h \
     source/viewmenuexercices.h \
     source/modelmenuexercices.h \
-    source/modelexercice.h
+    source/modelexercice.h \
+    source/viewexercice.h
 
 OTHER_FILES += images/dislekclik.png
 

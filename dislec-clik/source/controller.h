@@ -1,7 +1,7 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
-#define WIN_WIDTH 1024
-#define WIN_HEIGHT 768
+#define WIN_WIDTH 800
+#define WIN_HEIGHT 600
 
 #include <QWidget>
 #include <QApplication>
@@ -22,6 +22,7 @@
 #include "viewmenu.h"
 #include "viewstat.h"
 #include "viewmenuexercices.h"
+#include "viewexercice.h"
 
 #include "db.h"
 
@@ -43,11 +44,18 @@ public:
     QVector<int> getTentatives();
     QVector<int> getMoyennes();
 
+    //Exercices
+    QString getExoName();
+    QString getExoDesc();
+    void setUIExo(QStringList list);
+    void menuExo();
+
 private:
     View * _v;
     Model * _m;
     Db _db;
     QString _user;
+    bool _mouse;
 
     void removeView();
     void removeModel();
@@ -77,8 +85,12 @@ private slots:
     void firstExo();
     void secondExo();
 
+    //Exercices
+    void propEvent(int prop);
+
 protected:
     void keyPressEvent ( QKeyEvent * event );
+    void mousePressEvent(QMouseEvent *);
 
 };
 

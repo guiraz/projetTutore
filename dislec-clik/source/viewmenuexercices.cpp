@@ -31,7 +31,7 @@ void ViewMenuExercices::setView()
     _buttonExo1.setParent(_parent);
     _buttonExo1.setGeometry(5, 5, x, y);
     _buttonExo1.setIcon(exo1I);
-    _buttonExo1.setIconSize(QSize(200,200));
+    _buttonExo1.setIconSize(QSize(y*0.7,y*0.7));
     _buttonExo1.setText(exo1T);
     _buttonExo1.setToolButtonStyle(Qt::ToolButtonTextUnderIcon);
     _buttonExo1.setFont(QFont("Times New Roman", 24));
@@ -42,7 +42,7 @@ void ViewMenuExercices::setView()
     _buttonExo2.setParent(_parent);
     _buttonExo2.setGeometry(x+10, 5, x, y);
     _buttonExo2.setIcon(exo2I);
-    _buttonExo2.setIconSize(QSize(200,200));
+    _buttonExo2.setIconSize(QSize(y*0.7,y*0.7));
     _buttonExo2.setText(exo2T);
     _buttonExo2.setToolButtonStyle(Qt::ToolButtonTextUnderIcon);
     _buttonExo2.setFont(QFont("Times New Roman", 24));
@@ -53,7 +53,7 @@ void ViewMenuExercices::setView()
     _buttonPrev.setParent(_parent);
     _buttonPrev.setGeometry(5, y+10, x, y);
     _buttonPrev.setIcon(prevI);
-    _buttonPrev.setIconSize(QSize(200,200));
+    _buttonPrev.setIconSize(QSize(y*0.7,y*0.7));
     _buttonPrev.setText(prevT);
     _buttonPrev.setToolButtonStyle(Qt::ToolButtonTextUnderIcon);
     _buttonPrev.setFont(QFont("Times New Roman", 24));
@@ -64,7 +64,7 @@ void ViewMenuExercices::setView()
     _buttonNext.setParent(_parent);
     _buttonNext.setGeometry(x+10, y+10, x, y);
     _buttonNext.setIcon(nextI);
-    _buttonNext.setIconSize(QSize(200,200));
+    _buttonNext.setIconSize(QSize(y*0.7,y*0.7));
     _buttonNext.setText(nextT);
     _buttonNext.setToolButtonStyle(Qt::ToolButtonTextUnderIcon);
     _buttonNext.setFont(QFont("Times New Roman", 24));
@@ -75,7 +75,7 @@ void ViewMenuExercices::setView()
     _buttonReturn.setParent(_parent);
     _buttonReturn.setGeometry(5, (2*y)+15, x, y);
     _buttonReturn.setIcon(retourI);
-    _buttonReturn.setIconSize(QSize(200,200));
+    _buttonReturn.setIconSize(QSize(y*0.7,y*0.7));
     _buttonReturn.setText(retourT);
     _buttonReturn.setToolButtonStyle(Qt::ToolButtonTextUnderIcon);
     _buttonReturn.setFont(QFont("Times New Roman", 24));
@@ -86,7 +86,7 @@ void ViewMenuExercices::setView()
     _buttonQuit.setParent(_parent);
     _buttonQuit.setGeometry(x+10, (2*y)+15, x, y);
     _buttonQuit.setIcon(exitI);
-    _buttonQuit.setIconSize(QSize(200,200));
+    _buttonQuit.setIconSize(QSize(y*0.7,y*0.7));
     _buttonQuit.setText(exitT);
     _buttonQuit.setToolButtonStyle(Qt::ToolButtonTextUnderIcon);
     _buttonQuit.setFont(QFont("Times New Roman", 24));

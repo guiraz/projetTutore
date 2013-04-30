@@ -13,6 +13,8 @@ Controller::Controller() : QWidget()
     setGeometry(dW, dH, WIN_WIDTH, WIN_HEIGHT);
     setFixedSize(WIN_WIDTH, WIN_HEIGHT);
 
+    _mouse = false;
+
     this->setPalette(QPalette(QColor(192,192,255)));
 
     _m = new ModelConnection(this, &_db);
@@ -53,6 +55,34 @@ QVector<int> Controller::getTentatives()
 QVector<int> Controller::getMoyennes()
 {
     return _m->getMoyennes();
+}
+
+QString Controller::getExoName()
+{
+    return _m->getExo();
+}
+
+QString Controller::getExoDesc()
+{
+    return _m->getDesc();
+}
+
+void Controller::setUIExo(QStringList list)
+{
+    if(list.size()==4)
+    {
+        _v->setButtonExo(list);
+    }
+    if(list.size()==1)
+    {
+        _mouse = true;
+        _v->setMarkPage(list.at(0));
+    }
+}
+
+void Controller::menuExo()
+{
+    this->menuExercices();
 }
 
 void Controller::quit()
@@ -125,7 +155,7 @@ void Controller::menuStatistiques()
     _m = new ModelStat(this, &_db);
     _m->setModel();
     delete _v;
-    _v = new ViewStat(this);
+    _v = new ViewStat(this);void setUIExo(QStringList list);
     _v->setView();
 }
 
@@ -158,6 +188,10 @@ void Controller::firstExo()
     _m = new ModelExercice(exo, &_db, this);
     _m->setModel();
     delete _v;
+    _v = new ViewExercice(this);
+    _v->setView();
+
+    _mouse = true;
 }
 
 void Controller::secondExo()
@@ -167,6 +201,32 @@ void Controller::secondExo()
     _m = new ModelExercice(exo, &_db, this);
     _m->setModel();
     delete _v;
+    _v = new ViewExercice(this);
+    _v->setView();
+
+    _mouse = true;
+}
+
+void Controller::propEvent(int prop)
+{
+    switch(prop)
+    {
+        case 1:
+            _m->answer(0);
+            break;
+        case 2:
+            _m->answer(1);
+            break;
+        case 3:
+            _m->answer(2);
+            break;
+        case 4:
+            _m->answer(3);
+            break;
+        default:
+            break;
+    }
+    _m->nextPage();
 }
 
 void Controller::keyPressEvent(QKeyEvent *event)
@@ -174,4 +234,14 @@ void Controller::keyPressEvent(QKeyEvent *event)
     QWidget::keyPressEvent(event);
     if(event->key()==Qt::Key_Escape)
         quit();
+}
+
+void Controller::mousePressEvent(QMouseEvent * event)
+{
+    QWidget::mousePressEvent(event);
+    if(_mouse)
+    {
+        _mouse = false;
+        _m->nextPage();
+    }
 }

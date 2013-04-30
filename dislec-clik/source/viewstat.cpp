@@ -22,10 +22,13 @@ void ViewStat::setView()
     retourI.addPixmap(QPixmap("images/retour.png"));
     exitI.addPixmap(QPixmap("images/exit.png"));
 
+    int x = (_parent->size().width()-15)/2;
+    int y = (_parent->size().height()-20)/2;
+
     _buttonQuit.setParent(_parent);
-    _buttonQuit.setGeometry((_parent->size().width()/2) + 3, (_parent->size().height()/2) + 3, (_parent->size().width()-15)/2, (_parent->size().height()-15)/2);
+    _buttonQuit.setGeometry((_parent->size().width()/2) + 3, (_parent->size().height()/2) + 3, x, y);
     _buttonQuit.setIcon(exitI);
-    _buttonQuit.setIconSize(QSize(250,250));
+    _buttonQuit.setIconSize(QSize(y*0.7,y*0.7));
     _buttonQuit.setText(exitT);
     _buttonQuit.setToolButtonStyle(Qt::ToolButtonTextUnderIcon);
     _buttonQuit.setFont(QFont("Times New Roman", 24));
@@ -34,9 +37,9 @@ void ViewStat::setView()
     QObject::connect(&_buttonQuit, SIGNAL(clicked()), _parent, SLOT(quit()));
 
     _buttonReturn.setParent(_parent);
-    _buttonReturn.setGeometry(5, (_parent->size().height()/2) + 3, (_parent->size().width()-15)/2, (_parent->size().height()-15)/2);
+    _buttonReturn.setGeometry(5, (_parent->size().height()/2) + 3, x, y);
     _buttonReturn.setIcon(retourI);
-    _buttonReturn.setIconSize(QSize(300,300));
+    _buttonReturn.setIconSize(QSize(y*0.7,y*0.7));
     _buttonReturn.setText(retourT);
     _buttonReturn.setToolButtonStyle(Qt::ToolButtonTextUnderIcon);
     _buttonReturn.setFont(QFont("Times New Roman", 24));
@@ -59,7 +62,7 @@ void ViewStat::setView()
     for(int i=0; i<nbLabels; i++)
     {
         _labels[i].setFont(QFont("Times New Roman", 18));
-        _labels[i].setStyleSheet(".QLabel{background-color : pink;}");
+        _labels[i].setStyleSheet(".QLabel{background-color : #FFFF99;}");
         _labels[i].setAlignment(Qt::AlignCenter);
     }
 
@@ -69,18 +72,22 @@ void ViewStat::setView()
         if(i==0)
         {
             _labels[compteur].setText(_parent->getUser());
+            _labels[compteur].setStyleSheet("font-weight : bold; background-color : #FFFF99;");
             _layout.addWidget(&_labels[compteur], 0, 0);
             compteur++;
             _labels[compteur].setText("Nombre de tentatives :");
+            _labels[compteur].setStyleSheet("font-weight : bold; background-color : #FFFF99;");
             _layout.addWidget(&_labels[compteur], 1, 0);
             compteur++;
             _labels[compteur].setText("Moyenne :");
+            _labels[compteur].setStyleSheet("font-weight : bold; background-color : #FFFF99;");
             _layout.addWidget(&_labels[compteur], 2, 0);
             compteur++;
         }
         else
         {
             _labels[compteur].setText(_exercices[i-1]+" :");
+            _labels[compteur].setStyleSheet("font-weight : bold; background-color : #FFFF99;");
             _layout.addWidget(&_labels[compteur], 0, i);
             compteur++;
 
@@ -88,7 +95,7 @@ void ViewStat::setView()
             _layout.addWidget(&_labels[compteur], 1, i);
             compteur++;
 
-            _labels[compteur].setText(QString::number(moyennes[i-1]));
+            _labels[compteur].setText(QString::number(moyennes[i-1])+"/10");
             _layout.addWidget(&_labels[compteur], 2, i);
             compteur++;
         }

@@ -28,6 +28,12 @@ public:
     virtual void prev();
     virtual QString firstExo();
     virtual QString secondExo();
+
+    //Exercices
+    virtual QString getExo();
+    virtual QString getDesc();
+    virtual void nextPage();
+    virtual void answer(int);
 };
 
 #endif // MODEL_H

@@ -51,4 +51,97 @@ void ModelExercice::setModel()
     query.clear();
 
     _currentPage = -1;
+    _correctAnswer = 0;
 }
+
+QString ModelExercice::getExo()
+{
+    return _exo;
+}
+
+QString ModelExercice::getDesc()
+{
+    return _desc;
+}
+
+void ModelExercice::nextPage()
+{
+    _currentPage++;
+    if(_currentPage<10)
+    {
+        QStringList l;
+        int i=0;
+        QVector<bool> affected;
+        affected.fill(false,4);
+        while(i<4)
+        {
+            switch(rand()%4)
+            {
+                case 0:
+                    if(!affected[0])
+                    {
+                        l<<_listePropositions[_listeExo[_currentPage]*4];
+                        affected[0]=true;
+                        _currentAnswer = i;
+                        i++;
+                    }
+                    break;
+                case 1:
+                    if(!affected[1])
+                    {
+                        l<<_listePropositions[_listeExo[_currentPage]*4+1];
+                        affected[1]=true;
+                        i++;
+                    }
+                    break;
+                case 2:
+                    if(!affected[2])
+                    {
+                        l<<_listePropositions[_listeExo[_currentPage]*4+2];
+                        affected[2]=true;
+                        i++;
+                    }
+                    break;
+                case 3:
+                    if(!affected[3])
+                    {
+                        l<<_listePropositions[_listeExo[_currentPage]*4+3];
+                        affected[3]=true;
+                        i++;
+                    }
+                    break;
+            }
+        }
+        _parent->setUIExo(l);
+    }
+    if(_currentPage==10)
+    {
+        QSqlQuery query;
+        query.exec("SELECT ID FROM EXERCICES WHERE NAME='"+_exo+"';");
+        query.first();
+        int idExo = query.value(0).toInt();
+        query.clear();
+        query.exec("SELECT MAX(ID) FROM SUIVIS;");
+        int idSuivi;
+        if(query.first())
+            idSuivi = query.value(0).toInt()+1;
+        else
+            idSuivi = 0;
+        query.clear();
+        query.exec("INSERT INTO SUIVIS VALUES ('"+QString::number(idSuivi)+"','"+_parent->getUser()+"','"+QString::number(idExo)+"','"+QString::number(_correctAnswer)+"');");
+        query.clear();
+
+        QStringList l;
+        l<<QString::number(_correctAnswer);
+        _parent->setUIExo(l);
+    }
+    if(_currentPage>10)
+        _parent->menuExo();
+}
+
+void ModelExercice::answer(int answer)
+{
+    if(_currentAnswer==answer)
+        _correctAnswer++;
+}
+

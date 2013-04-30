@@ -34,13 +34,14 @@ void ModelStat::setModel()
     for(int i=0; i<_nbExo; i++)
     {
         query.exec("SELECT SUM(NOTE) FROM SUIVIS WHERE USER_NAME='" + _user +"' AND EXERCICE_ID='" + QString::number(i+1) + "';");
-        if(query.first())
+        if(query.first() && _nbTentatives[i]>0)
         {
             _moyennes.append(query.value(0).toInt());
             _moyennes[i]/=_nbTentatives[i];
         }
         else
             _moyennes.append(0);
+        query.clear();
     }
 }
 

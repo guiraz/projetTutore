@@ -55,7 +55,7 @@ void Db::createDB()
     query.exec("DROP TABLE IF EXISTS [EXERCICES];");
     query.exec("CREATE TABLE [EXERCICES] ([ID] INTEGER PRIMARY KEY, [NAME] VARCHAR, [DESC] TEXT);");
     query.exec("INSERT INTO [EXERCICES] VALUES(1, 'Conjugaison', 'Choisir la bonne conjugaison');");
-    query.exec("INSERT INTO [EXERCICES] VALUES(2, 'L''intru', 'Trouver l''intru parmis les propositions suivantes');");
+    query.exec("INSERT INTO [EXERCICES] VALUES(2, 'Intru', 'Trouver l''intru parmis les propositions suivantes');");
 
     query.exec("DROP TABLE IF EXISTS [PROPOSITIONS];");
     query.exec("CREATE TABLE [PROPOSITIONS] ([ID] INTEGER PRIMARY KEY, [EXERCICE_ID] INTEGER REFERENCES [EXERCICES]([ID]), [PROP1] VARCHAR, [PROP2] VARCHAR, [PROP3] VARCHAR, [PROP4] VARCHAR);");
@@ -164,8 +164,9 @@ void Db::createDB()
     query.exec("CREATE TABLE [USERS] ([NAME] VARCHAR, CONSTRAINT [sqlite_autoindex_USERS_1] PRIMARY KEY ([NAME]));");
 
     query.exec("DROP TABLE IF EXISTS [SUIVIS];");
-    query.exec("CREATE TABLE [SUIVIS] ([ID] INTEGER PRIMARY KEY, [USER_NAME] VARCHAR REFERENCES [USERS]([NAME]), [EXERCICE_ID] INTEGER REFERENCES [EXERCICES]([ID]), [NOTE] INTEGER;");
+    query.exec("CREATE TABLE [SUIVIS] ([ID] INTEGER PRIMARY KEY, [USER_NAME] VARCHAR REFERENCES [USERS]([NAME]), [EXERCICE_ID] INTEGER REFERENCES [EXERCICES]([ID]), [NOTE] INTEGER);");
 
+    qDebug()<<query.lastError();
     query.exec("commit transaction;");
     query.exec("pragma foreign_keys = on;");
 }

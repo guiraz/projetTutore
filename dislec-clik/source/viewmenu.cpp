@@ -21,11 +21,14 @@ void ViewMenu::setView()
     statI.addPixmap(QPixmap("images/stat.png"));
     exitI.addPixmap(QPixmap("images/exit.png"));
 
+    int x = (_parent->size().width()-15)/2;
+    int y = (_parent->size().height()-20)/2;
+
 
     _buttonExercices.setParent(_parent);
-    _buttonExercices.setGeometry(5, 5, (_parent->size().width()-15)/2, (_parent->size().height()-15)/2);
+    _buttonExercices.setGeometry(5, 5, x, y);
     _buttonExercices.setIcon(goI);
-    _buttonExercices.setIconSize(QSize(300,300));
+    _buttonExercices.setIconSize(QSize(y*0.7,y*0.7));
     _buttonExercices.setText(goT);
     _buttonExercices.setToolButtonStyle(Qt::ToolButtonTextUnderIcon);
     _buttonExercices.setFont(QFont("Times New Roman", 24));
@@ -34,9 +37,9 @@ void ViewMenu::setView()
     QObject::connect(&_buttonExercices, SIGNAL(clicked()), _parent, SLOT(menuExercices()));
 
     _buttonStat.setParent(_parent);
-    _buttonStat.setGeometry((_parent->size().width()/2) + 3, 5, (_parent->size().width()-15)/2, (_parent->size().height()-15)/2);
+    _buttonStat.setGeometry((_parent->size().width()/2) + 3, 5, x, y);
     _buttonStat.setIcon(statI);
-    _buttonStat.setIconSize(QSize(300,300));
+    _buttonStat.setIconSize(QSize(y*0.7,y*0.7));
     _buttonStat.setText(statT);
     _buttonStat.setToolButtonStyle(Qt::ToolButtonTextUnderIcon);
     _buttonStat.setFont(QFont("Times New Roman", 24));
@@ -45,9 +48,9 @@ void ViewMenu::setView()
     QObject::connect(&_buttonStat, SIGNAL(clicked()), _parent, SLOT(menuStatistiques()));
 
     _buttonQuit.setParent(_parent);
-    _buttonQuit.setGeometry((_parent->size().width()/2) + 3, (_parent->size().height()/2) + 3, (_parent->size().width()-15)/2, (_parent->size().height()-15)/2);
+    _buttonQuit.setGeometry((_parent->size().width()/2) + 3, (_parent->size().height()/2) + 3, x, y);
     _buttonQuit.setIcon(exitI);
-    _buttonQuit.setIconSize(QSize(250,250));
+    _buttonQuit.setIconSize(QSize(y*0.7,y*0.7));
     _buttonQuit.setText(exitT);
     _buttonQuit.setToolButtonStyle(Qt::ToolButtonTextUnderIcon);
     _buttonQuit.setFont(QFont("Times New Roman", 24));
@@ -56,9 +59,9 @@ void ViewMenu::setView()
     QObject::connect(&_buttonQuit, SIGNAL(clicked()), _parent, SLOT(quit()));
 
     _buttonReturn.setParent(_parent);
-    _buttonReturn.setGeometry(5, (_parent->size().height()/2) + 3, (_parent->size().width()-15)/2, (_parent->size().height()-15)/2);
+    _buttonReturn.setGeometry(5, (_parent->size().height()/2) + 3, x, y);
     _buttonReturn.setIcon(retourI);
-    _buttonReturn.setIconSize(QSize(300,300));
+    _buttonReturn.setIconSize(QSize(y*0.7,y*0.7));
     _buttonReturn.setText(retourT);
     _buttonReturn.setToolButtonStyle(Qt::ToolButtonTextUnderIcon);
     _buttonReturn.setFont(QFont("Times New Roman", 24));

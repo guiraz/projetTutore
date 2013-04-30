@@ -7,6 +7,7 @@
 #include <QFile>
 #include <iostream>
 #include <QSqlError>
+#include <QDebug>
 
 class Db
 {
