@@ -1,6 +1,6 @@
 CONFIG += qt
 
-QT += core gui sql
+QT += core gui sql widgets
 
 TARGET = dislec-clik
 TEMPLATE = app
